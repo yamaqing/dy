@@ -1,0 +1,26 @@
+server:
+  port: 8081
+#
+#spring:
+#  application:
+#    name: tl-live-api
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: nacos.tllive.com:8848
+#        namespace: tl-live
+#
+#dubbo:
+#  application:
+#    name: ${spring.application.name}
+#    qos-enable: false
+#  registry:
+#    address: nacos://nacos.tllive.com:8848?namespace=tl-live
+#    id: nacos-registry
+#  protocol:
+#    name: dubbo
+#    port: -1
+
+#tllive:
+#  im:
+#    instance: tl-live-im-server

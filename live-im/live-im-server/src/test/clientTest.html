@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webSocketClient</title>
+    <script type="text/javascript">
+        var socket;
+        if(!window.WebSocket){
+            alert("浏览器不支持websocket");
+        }
+        function connect() {
+            var websocketUrl = "ws://localhost:8989/chat";
+            var userId = document.getElementById("userId");
+            if(userId.value){
+                websocketUrl += "/"+userId.value;
+            }
+            //需要在Redis中预先设定Key：IM_TOKEN_123
+            socket = new WebSocket(websocketUrl,"123");
+console.info('socket',socket)
+            socket.onmessage = function (event) {
+                var rt = document.getElementById("responseText");
+                rt.value = rt.value + "\n"+event.data;
+            }
+            socket.onopen=function (event) {
+                var rt = document.getElementById("responseText");
+                rt.value = "建立WebSocket连接....";
+            }
+            socket.onclose=function (event) {
+                var rt = document.getElementById("responseText");
+                rt.value = rt.value + "\n 连接已关闭";
+            }
+
+            setInterval(function(){
+                if(socket){
+                    socket.send("Heartbeat");
+                }
+            },10000);
+
+
+        }
+
+        function send(message){
+            if(!window.socket){
+                alert("还没有建立连接。")
+                return;
+            }
+            if(socket.readyState == WebSocket.OPEN){
+                socket.send(message)
+            }else{
+                alert("没有建立连接");
+            }
+        }
+
+        function disconnect() {
+            if(window.socket){
+                socket.close();
+                socket = null;
+            }
+        }
+
+        //生成随机字符串
+        function generateRandomString(length) {
+            let result = '';
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+
+            return result;
+        }
+
+    </script>
+</head>
+<body>
+<form onsubmit="return false">
+    <table>
+        <tr>
+            <td>
+                <input type="button" value="上线" onclick="connect()">
+            </td>
+            <td>
+                <input type="button" value="下线" onclick="disconnect()">
+            </td>
+            <td>
+                <input type="button" value="发送消息" onclick="send(this.form.message.value)">
+            </td>
+            <td>
+                <input type="button" value="清空内容" onclick="document.getElementById('responseText').value=''">
+            </td>
+        </tr>
+        <tr>
+            <td>
+               用户ID：
+            </td>
+            <td colspan="3">
+                <input name="userId" id="userId">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><textarea name="message" style="height: 300px; width: 300px"></textarea></td>
+            <td colspan="2"><textarea id="responseText" style="height: 300px; width: 300px"></textarea></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script type="text/javascript">
+    var defaultRadomUserId = generateRandomString(8);
+    console.info("默认用户ID："+defaultRadomUserId)
+    document.getElementById("userId").value = defaultRadomUserId ;
+</script>
+</html>

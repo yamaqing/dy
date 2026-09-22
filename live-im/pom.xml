@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tiktok</groupId>
+        <artifactId>tiktok-live-mall</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>live-im</artifactId>
+    <packaging>pom</packaging>
+
+    <name>live-im</name>
+
+    <!-- 规范化：im-interface 归入本聚合器（原工程由根 POM 以嵌套路径单独声明，且依赖 junit 3.8.1 古董版本，均已修复） -->
+    <modules>
+        <module>live-im-interface</module>
+        <module>live-im-server</module>
+        <module>live-im-busi</module>
+    </modules>
+</project>

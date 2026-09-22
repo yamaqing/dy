@@ -1,0 +1,10 @@
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: false
+  registry:
+    address: nacos://nacos.tllive.com:8848?namespace=tl-live
+    id: nacos-registry
+  protocol:
+    name: dubbo
+    port: -1

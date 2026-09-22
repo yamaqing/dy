@@ -1,0 +1,12 @@
+rocketmq:
+  name-server: 192.168.65.212:9876
+  #必须配置producer
+  producer:
+    group: tl-live-im-producer
+  consumer:
+    group: tl-live-im-busi
+
+#同一个房间的消息缓存条数。
+tl-live:
+  message:
+    cachesize: 5

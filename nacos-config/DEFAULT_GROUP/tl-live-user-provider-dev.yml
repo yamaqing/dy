@@ -1,0 +1,11 @@
+tllive:
+  sms:
+    ccp:
+      test: true
+      smsServerIP: app.cloopen.com
+      port: 8883
+      accountSId: 2c94811c8cd4da0a018ed0dfe87f5a6d
+      accountToken: f9f296ec8f2546658add9cb6947abf25
+      appId: 2c94811c8cd4da0a018ed0dfea165a74
+      templateId: 1
+      testPhone: 15874260244

@@ -1,0 +1,22 @@
+# server:
+#   port: 80 
+spring:
+  application:
+    name: tl-live-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: tl-live-api
+          uri: lb://tl-live-api
+          predicates:
+            - Path=/user/** , /im/**
+
+tllive:
+  gateway:
+    white-url-list:
+      - /user/sendSMS
+      - /user/mobileLogin
+      - /im/

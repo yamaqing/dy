@@ -1,0 +1,88 @@
+package com.tl.im.server.controller;
+
+import com.tl.im.server.manager.ConnectionManager;
+import jakarta.websocket.*;
+import jakarta.websocket.server.PathParam;
+import jakarta.websocket.server.ServerEndpoint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * Author： roy
+ * Description：
+ **/
+
+@Component
+@ServerEndpoint("/chat/{userId}")
+public class ChatWebSocketController {
+    Logger logger = LoggerFactory.getLogger(ChatWebSocketController.class);
+
+    //全局容器，不能是线程安全的。
+    private static final List<Session> sessionList = new ArrayList<>();
+
+    //缓存当前请求的UserId
+    private String userId;
+
+    @OnOpen
+    public void onOpen(Session session, @PathParam("userId") String userId){
+        logger.info("收到新链接请求，userId={},sessionId={}",userId,session.getId());
+        try{
+            Integer iUserId = Integer.valueOf(userId);
+            session.getUserProperties().put("UserId",iUserId);
+            logger.info("缓存Session，用户ID为{}",iUserId);
+        }catch(NumberFormatException e){
+            logger.info("userId:{} 不是数字，认为是未登录用户");
+        }
+
+        //没有做去重判断，所以同一个客户端，可以重复创建连接。
+//        sessionList.add(session);
+//        session.getUserProperties().put("UserId", userId);
+//        ConnectionManager.register(session.getId(), session);
+        //以UserId为key缓存Session。
+        ConnectionManager.register(userId, session);
+        this.userId = userId;
+    }
+
+    @OnClose
+    public void onClose(){
+        if(null == this.userId){
+            return;
+        }
+//        sessionList.remove(session);
+        ConnectionManager.cancel(userId);
+        logger.info("关闭链接");
+    }
+
+    @OnError
+    public void OnError(Session session, Throwable error){
+        logger.info("链接出错"+error.getMessage());
+    }
+
+    @OnMessage
+    public void onMessage(String message, Session session) throws IOException {
+        logger.info("收到消息"+message);
+        //只有登录用户的消息进行转发
+        if (session.getUserProperties().containsKey("UserId")) {
+            //给当前连接推送消息
+//        session.getBasicRemote().sendText(message);
+            //给所有客户端转发消息
+//        for (Session s : sessionList) {
+            for (Session s : ConnectionManager.getAllSession()) {
+                if (s.isOpen()) {
+//                    s.getBasicRemote().sendText("客户 "+session.getId()+"发送消息："+message);
+                    s.getBasicRemote().sendText("客户 "+this.userId+"发送消息："+message);
+                }
+            }
+        }else{//未登录用户发消息，只给自己一个提醒。
+            Optional<Session> optionalSession = ConnectionManager.getSession(this.userId);
+            if (!optionalSession.isEmpty()) {
+                optionalSession.get().getBasicRemote().sendText("未登录用户不允许参与聊天，请先登录");
+            }
+        }
+    }
+}

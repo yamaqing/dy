@@ -1,0 +1,6 @@
+# server:
+#   port: 8082
+#imServer注册的服务名
+tllive:
+  im:
+    instance: tl-live-im-server

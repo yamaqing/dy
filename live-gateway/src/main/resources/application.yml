@@ -1,0 +1,44 @@
+server:
+  port: 80
+#
+#spring:
+#  application:
+#    name: tl-live-gateway
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: nacos.tllive.com:8848
+#        namespace: tl-live
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#      routes:
+#        - id: tl-live-api
+#          uri: lb://tl-live-api
+#          predicates:
+#            - Path=/user/**
+#        # 测试路由规则
+#        - id: gateway-test
+#          uri: lb://tl-live-user-provider
+#          predicates:
+#            - Path=/test/**
+#  config:
+#    import: "nacos:"
+#
+#dubbo:
+#  application:
+#    name: ${spring.application.name}
+#    qos-enable: false
+#  registry:
+#    address: nacos://nacos.tllive.com:8848?namespace=tl-live
+#    id: nacos-registry
+#  protocol:
+#    name: dubbo
+#    port: -1
+#
+#tllive:
+#  gateway:
+#    white-url-list:
+#      - /user/sendSMS
+#      - /user/mobileLogin

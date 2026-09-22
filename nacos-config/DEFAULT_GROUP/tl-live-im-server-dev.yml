@@ -1,0 +1,18 @@
+# server:
+#   port: 8989
+rocketmq:
+  name-server: 192.168.65.212:9876
+  producer:
+    group: tl-live-im-producer
+
+tllive:
+  im:
+    thread:
+      pool:
+        corePoolSize: 2
+        maxPoolSize: 10
+        queueCapacity: 10000
+        keepAliveTime: 600
+    heartbeat:
+      timeout:
+        seconds: 30

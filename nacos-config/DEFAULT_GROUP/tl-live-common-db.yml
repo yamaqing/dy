@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.65.212:3306/tllive?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+  data:
+    redis:
+      host: 192.168.65.212
+      port: 6379
+      lettuce:
+        pool:
+          min-idle: 10
+          max-active: 100
+          max-idle: 10

@@ -1,0 +1,83 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: tulingmall-gateway
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.65.204:8000
+
+      datasource:
+        gateway-flow-rules:
+          nacos:
+            server-addr: 192.168.65.174:8848
+            dataId: ${spring.application.name}-gateway-flow-rules
+            groupId: SENTINEL_GROUP
+            data-type: json
+            rule-type: gw-flow
+        gateway-api-rules:
+          nacos:
+            server-addr: 192.168.65.174:8848
+            dataId: ${spring.application.name}-gateway-api-rules
+            groupId: SENTINEL_GROUP
+            data-type: json
+            rule-type: gw-api-group
+#    gateway:
+#      discovery:
+#        locator:
+#          lower-case-service-id: true
+#          enabled: true
+#      routes:
+#        - id: tulingmall-authcenter
+#          uri: lb://tulingmall-authcenter
+#          predicates:
+#            - Path=/oauth/**
+#        - id: tulingmall-member
+#          uri: lb://tulingmall-member
+#          predicates:
+#            - Path=/sso/**,/member/**
+#        - id: tulingmall-order-curr
+#          uri: lb://tulingmall-order-curr
+#          predicates:
+#            - Path=/order/**
+#        - id: tulingmall-cart
+#          uri: lb://tulingmall-cart
+#          predicates:
+#            - Path=/cart/**
+#        - id: tulingmall-product
+#          uri: lb://tulingmall-product
+#          predicates:
+#            - Path=/pms/**
+#        - id: tulingmall-coupons
+#          uri: lb://tulingmall-coupons
+#          predicates:
+#            - Path=/coupon/**
+#        - id: tulingmall-portal
+#          uri: lb://tulingmall-portal
+#          predicates:
+#            - Path=/home/**,/portal/**
+
+#
+#management: #开启SpringBoot Admin的监控
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#  endpoint:
+#    health:
+#      show-details: always
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+#tuling:
+#  gateway:
+#    shouldSkipUrls:
+#       - /oauth/**
+#       - /sso/**
+#       - /home/**
+#       - /portal/commentlist/**
+#       - /order/paySuccess/**
+#       - /pms/**
+#       - /static/qrcode/**

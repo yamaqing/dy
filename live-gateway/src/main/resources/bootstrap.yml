@@ -1,0 +1,20 @@
+# nacos配置中心找配置文件的默认规则：${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tl-live-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos.tllive.com:8848
+        namespace: tl-live
+      config:
+        import-check:
+          enabled: false
+        file-extension: yml
+        server-addr: nacos.tllive.com:8848
+        namespace: tl-live
+        shared-configs:
+          - data-id: tl-live-common-dubbo.yml
+            refresh: true
