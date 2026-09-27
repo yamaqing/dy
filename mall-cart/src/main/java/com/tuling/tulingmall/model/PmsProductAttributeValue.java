@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
+import lombok.Data;
+@Data
 public class PmsProductAttributeValue implements Serializable {
     private Long id;
 
@@ -16,37 +18,21 @@ public class PmsProductAttributeValue implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getProductId() {
-        return productId;
-    }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
 
-    public Long getProductAttributeId() {
-        return productAttributeId;
-    }
 
-    public void setProductAttributeId(Long productAttributeId) {
-        this.productAttributeId = productAttributeId;
-    }
 
-    public String getValue() {
-        return value;
-    }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+
+
+
+
+
+
+
+
 
     @Override
     public String toString() {

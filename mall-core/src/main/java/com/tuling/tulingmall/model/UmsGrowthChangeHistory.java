@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.Data;
+@Data
 public class UmsGrowthChangeHistory implements Serializable {
     private Long id;
 
@@ -29,69 +31,37 @@ public class UmsGrowthChangeHistory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getMemberId() {
-        return memberId;
-    }
 
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
-    }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
-    public Integer getChangeType() {
-        return changeType;
-    }
 
-    public void setChangeType(Integer changeType) {
-        this.changeType = changeType;
-    }
 
-    public Integer getChangeCount() {
-        return changeCount;
-    }
 
-    public void setChangeCount(Integer changeCount) {
-        this.changeCount = changeCount;
-    }
 
-    public String getOperateMan() {
-        return operateMan;
-    }
 
-    public void setOperateMan(String operateMan) {
-        this.operateMan = operateMan;
-    }
 
-    public String getOperateNote() {
-        return operateNote;
-    }
 
-    public void setOperateNote(String operateNote) {
-        this.operateNote = operateNote;
-    }
 
-    public Integer getSourceType() {
-        return sourceType;
-    }
 
-    public void setSourceType(Integer sourceType) {
-        this.sourceType = sourceType;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public String toString() {

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
 
+import lombok.Data;
+@Data
 @Service
 @Slf4j
 public class PromotionRedisKey {
@@ -51,25 +53,15 @@ public class PromotionRedisKey {
         log.info("促销系统Redis主键配置：{}",logKeyStr);
     }
 
-    public String getBrandKey() {
-        return brandKey;
-    }
 
-    public String getNewProductKey() {
-        return newProductKey;
-    }
 
-    public String getRecProductKey() {
-        return recProductKey;
-    }
 
-    public String getHomeAdvertiseKey() {
-        return homeAdvertiseKey;
-    }
 
-    public String getSecKillKey() {
-        return secKillKey;
-    }
+
+
+
+
+
 
     @Value("${promotion.demo.allowLocalCache:true}")
     private boolean allowLocalCache;

@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.tuling.tulingmall.util.BloomFilterHelper;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import lombok.Data;
 /**
  *
  * @author ：图灵学院
@@ -12,19 +13,16 @@ import org.springframework.data.redis.core.RedisTemplate;
  * @slogan: 天下风云出我辈，一入代码岁月催
  * @description: 布隆过滤器service
  **/
+@Data
 public class BloomRedisService {
 
     private RedisTemplate<String, Object> redisTemplate;
 
     private BloomFilterHelper bloomFilterHelper;
 
-    public void setBloomFilterHelper(BloomFilterHelper bloomFilterHelper) {
-        this.bloomFilterHelper = bloomFilterHelper;
-    }
 
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+
+
 
     /**
      * 根据给定的布隆过滤器添加值

@@ -3,10 +3,12 @@ package com.tl.user.dto;
 import java.io.Serial;
 import java.io.Serializable;
 
+import lombok.Data;
 /**
  * Author： roy
  * Description：
  **/
+@Data
 public class UserLoginDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = -4290788036479984698L;
@@ -23,22 +25,6 @@ public class UserLoginDTO implements Serializable {
         isLoginSuccess = loginSuccess;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     public static UserLoginDTO loginError(String desc) {
         UserLoginDTO userLoginDTO = new UserLoginDTO();
         userLoginDTO.setLoginSuccess(false);
@@ -53,12 +39,4 @@ public class UserLoginDTO implements Serializable {
         return userLoginDTO;
     }
 
-    @Override
-    public String toString() {
-        return "UserLoginDTO{" +
-                "isLoginSuccess=" + isLoginSuccess +
-                ", desc='" + desc + '\'' +
-                ", userId=" + userId +
-                '}';
-    }
 }

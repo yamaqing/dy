@@ -2,18 +2,15 @@ package com.tl.user.provider.redis;
 
 import com.tl.user.dto.UserDTO;
 import jakarta.annotation.Resource;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Author： roy
  * Description：
  **/
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class RedisTest {
 
     @Resource

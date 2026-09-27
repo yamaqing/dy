@@ -6,10 +6,12 @@ import com.tuling.tulingmall.model.UmsMemberReceiveAddress;
 import java.math.BigDecimal;
 import java.util.List;
 
+import lombok.Data;
 /**
  * 确认单信息封装
  * Created by macro on 2018/8/30.
  */
+@Data
 public class ConfirmOrderResult {
     //包含优惠信息的购物车信息
     private List<CartPromotionItem> cartPromotionItemList;
@@ -24,54 +26,31 @@ public class ConfirmOrderResult {
     //计算的金额
     private CalcAmount calcAmount;
 
-    public List<CartPromotionItem> getCartPromotionItemList() {
-        return cartPromotionItemList;
-    }
 
-    public void setCartPromotionItemList(List<CartPromotionItem> cartPromotionItemList) {
-        this.cartPromotionItemList = cartPromotionItemList;
-    }
 
-    public List<UmsMemberReceiveAddress> getMemberReceiveAddressList() {
-        return memberReceiveAddressList;
-    }
 
-    public void setMemberReceiveAddressList(List<UmsMemberReceiveAddress> memberReceiveAddressList) {
-        this.memberReceiveAddressList = memberReceiveAddressList;
-    }
 
-    public List<SmsCouponHistoryDetail> getCouponHistoryDetailList() {
-        return couponHistoryDetailList;
-    }
 
-    public void setCouponHistoryDetailList(List<SmsCouponHistoryDetail> couponHistoryDetailList) {
-        this.couponHistoryDetailList = couponHistoryDetailList;
-    }
 
-    public UmsIntegrationConsumeSetting getIntegrationConsumeSetting() {
-        return integrationConsumeSetting;
-    }
 
-    public void setIntegrationConsumeSetting(UmsIntegrationConsumeSetting integrationConsumeSetting) {
-        this.integrationConsumeSetting = integrationConsumeSetting;
-    }
 
-    public Integer getMemberIntegration() {
-        return memberIntegration;
-    }
 
-    public void setMemberIntegration(Integer memberIntegration) {
-        this.memberIntegration = memberIntegration;
-    }
 
-    public CalcAmount getCalcAmount() {
-        return calcAmount;
-    }
 
-    public void setCalcAmount(CalcAmount calcAmount) {
-        this.calcAmount = calcAmount;
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    @Data
     public static class CalcAmount{
         //订单商品总金额
         private BigDecimal totalAmount;
@@ -82,36 +61,20 @@ public class ConfirmOrderResult {
         //应付金额
         private BigDecimal payAmount;
 
-        public BigDecimal getTotalAmount() {
-            return totalAmount;
-        }
 
-        public void setTotalAmount(BigDecimal totalAmount) {
-            this.totalAmount = totalAmount;
-        }
 
-        public BigDecimal getFreightAmount() {
-            return freightAmount;
-        }
 
-        public void setFreightAmount(BigDecimal freightAmount) {
-            this.freightAmount = freightAmount;
-        }
 
-        public BigDecimal getPromotionAmount() {
-            return promotionAmount;
-        }
 
-        public void setPromotionAmount(BigDecimal promotionAmount) {
-            this.promotionAmount = promotionAmount;
-        }
 
-        public BigDecimal getPayAmount() {
-            return payAmount;
-        }
 
-        public void setPayAmount(BigDecimal payAmount) {
-            this.payAmount = payAmount;
-        }
+
+
+
+
+
+
+
+
     }
 }

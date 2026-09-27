@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PostConstruct;
 
+import lombok.Data;
+@Data
 @Slf4j
 @Service
 public class PromotionRedisKey {
@@ -76,43 +78,23 @@ public class PromotionRedisKey {
         log.info("促销系统Redis主键配置：{}",logKeyStr);
     }
 
-    public String getBrandKey() {
-        return brandKey;
-    }
 
-    public String getNewProductKey() {
-        return newProductKey;
-    }
 
-    public String getRecProductKey() {
-        return recProductKey;
-    }
 
-    public String getHomeAdvertiseKey() {
-        return homeAdvertiseKey;
-    }
 
-    public String getSecKillKey() {
-        return secKillKey;
-    }
 
-    public String getDlBrandKey() {
-        return dlBrandKey;
-    }
 
-    public String getDlNewProductKey() {
-        return dlNewProductKey;
-    }
 
-    public String getDlRecProductKey() {
-        return dlRecProductKey;
-    }
 
-    public String getDlHomeAdvertiseKey() {
-        return dlHomeAdvertiseKey;
-    }
 
-    public long getDlTimeout() {
-        return dlTimeout;
-    }
+
+
+
+
+
+
+
+
+
+
 }

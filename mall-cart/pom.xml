@@ -108,19 +108,10 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <!-- SB3 统一测试依赖：含 JUnit5(jupiter)/spring-test/mockito；JUnit4 测试类已同步转 JUnit5 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 

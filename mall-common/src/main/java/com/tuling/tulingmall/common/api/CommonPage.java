@@ -5,10 +5,12 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
+import lombok.Data;
 /**
  * 分页数据封装类
  * Created by macro on 2019/4/19.
  */
+@Data
 public class CommonPage<T> {
     private Integer pageNum;
     private Integer pageSize;
@@ -43,43 +45,23 @@ public class CommonPage<T> {
         return result;
     }
 
-    public Integer getPageNum() {
-        return pageNum;
-    }
 
-    public void setPageNum(Integer pageNum) {
-        this.pageNum = pageNum;
-    }
 
-    public Integer getPageSize() {
-        return pageSize;
-    }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
 
-    public Integer getTotalPage() {
-        return totalPage;
-    }
 
-    public void setTotalPage(Integer totalPage) {
-        this.totalPage = totalPage;
-    }
 
-    public List<T> getList() {
-        return list;
-    }
 
-    public void setList(List<T> list) {
-        this.list = list;
-    }
 
-    public Long getTotal() {
-        return total;
-    }
 
-    public void setTotal(Long total) {
-        this.total = total;
-    }
+
+
+
+
+
+
+
+
+
+
 }

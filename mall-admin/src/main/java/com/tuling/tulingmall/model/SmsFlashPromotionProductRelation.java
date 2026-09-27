@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import lombok.Data;
+@Data
 @TableName("tl_mall_promotion.sms_flash_promotion_product_relation")
 public class SmsFlashPromotionProductRelation implements Serializable {
     @ApiModelProperty(value = "编号")
@@ -32,69 +34,37 @@ public class SmsFlashPromotionProductRelation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getFlashPromotionId() {
-        return flashPromotionId;
-    }
 
-    public void setFlashPromotionId(Long flashPromotionId) {
-        this.flashPromotionId = flashPromotionId;
-    }
 
-    public Long getFlashPromotionSessionId() {
-        return flashPromotionSessionId;
-    }
 
-    public void setFlashPromotionSessionId(Long flashPromotionSessionId) {
-        this.flashPromotionSessionId = flashPromotionSessionId;
-    }
 
-    public Long getProductId() {
-        return productId;
-    }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
 
-    public BigDecimal getFlashPromotionPrice() {
-        return flashPromotionPrice;
-    }
 
-    public void setFlashPromotionPrice(BigDecimal flashPromotionPrice) {
-        this.flashPromotionPrice = flashPromotionPrice;
-    }
 
-    public Integer getFlashPromotionCount() {
-        return flashPromotionCount;
-    }
 
-    public void setFlashPromotionCount(Integer flashPromotionCount) {
-        this.flashPromotionCount = flashPromotionCount;
-    }
 
-    public Integer getFlashPromotionLimit() {
-        return flashPromotionLimit;
-    }
 
-    public void setFlashPromotionLimit(Integer flashPromotionLimit) {
-        this.flashPromotionLimit = flashPromotionLimit;
-    }
 
-    public Integer getSort() {
-        return sort;
-    }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public String toString() {

@@ -2,6 +2,8 @@ package com.tuling.tulingmall.model;
 
 import java.io.Serializable;
 
+import lombok.Data;
+@Data
 public class CmsSubjectProductRelation implements Serializable {
     private Long id;
 
@@ -11,29 +13,17 @@ public class CmsSubjectProductRelation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getSubjectId() {
-        return subjectId;
-    }
 
-    public void setSubjectId(Long subjectId) {
-        this.subjectId = subjectId;
-    }
 
-    public Long getProductId() {
-        return productId;
-    }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+
+
+
+
+
+
 
     @Override
     public String toString() {

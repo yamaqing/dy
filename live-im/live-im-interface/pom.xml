@@ -13,4 +13,11 @@
     <packaging>jar</packaging>
 
     <name>live-im-interface</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>

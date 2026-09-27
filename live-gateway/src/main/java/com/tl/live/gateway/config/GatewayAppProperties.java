@@ -5,28 +5,16 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+import lombok.Data;
 /**
  * Author： roy
  * Description：
  **/
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "tllive.gateway")
 public class GatewayAppProperties {
 
     private List<String> whiteUrlList;
 
-    public List<String> getWhiteUrlList() {
-        return whiteUrlList;
-    }
-
-    public void setWhiteUrlList(List<String> whiteUrlList) {
-        this.whiteUrlList = whiteUrlList;
-    }
-
-    @Override
-    public String toString() {
-        return "GatewayProperties{" +
-                "whiteUrlList=" + whiteUrlList +
-                '}';
-    }
 }

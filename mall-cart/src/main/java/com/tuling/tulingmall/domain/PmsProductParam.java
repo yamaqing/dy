@@ -7,10 +7,12 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
 /**
  * 创建和修改商品时使用的参数
  * Created by macro on 2018/4/26.
  */
+@Data
 public class PmsProductParam extends PmsProduct {
     @ApiModelProperty("商品阶梯价格设置")
     private List<PmsProductLadder> productLadderList;
@@ -54,99 +56,51 @@ public class PmsProductParam extends PmsProduct {
      */
     private Long flashPromotionRelationId;
 
-    public Long getFlashPromotionRelationId() {
-        return flashPromotionRelationId;
-    }
 
-    public void setFlashPromotionRelationId(Long flashPromotionRelationId) {
-        this.flashPromotionRelationId = flashPromotionRelationId;
-    }
 
-    public BigDecimal getFlashPromotionPrice() {
-        return flashPromotionPrice;
-    }
 
-    public void setFlashPromotionPrice(BigDecimal flashPromotionPrice) {
-        this.flashPromotionPrice = flashPromotionPrice;
-    }
 
-    public Integer getFlashPromotionCount() {
-        return flashPromotionCount;
-    }
 
-    public void setFlashPromotionCount(Integer flashPromotionCount) {
-        this.flashPromotionCount = flashPromotionCount;
-    }
 
-    public Integer getFlashPromotionLimit() {
-        return flashPromotionLimit;
-    }
 
-    public void setFlashPromotionLimit(Integer flashPromotionLimit) {
-        this.flashPromotionLimit = flashPromotionLimit;
-    }
 
-    public Integer getFlashPromotionStatus() {
-        return flashPromotionStatus;
-    }
 
-    public void setFlashPromotionStatus(Integer flashPromotionStatus) {
-        this.flashPromotionStatus = flashPromotionStatus;
-    }
 
-    public Date getFlashPromotionStartDate() {
-        return flashPromotionStartDate;
-    }
 
-    public void setFlashPromotionStartDate(Date flashPromotionStartDate) {
-        this.flashPromotionStartDate = flashPromotionStartDate;
-    }
 
-    public Date getFlashPromotionEndDate() {
-        return flashPromotionEndDate;
-    }
 
-    public void setFlashPromotionEndDate(Date flashPromotionEndDate) {
-        this.flashPromotionEndDate = flashPromotionEndDate;
-    }
 
-    public List<PmsProductLadder> getProductLadderList() {
-        return productLadderList;
-    }
 
-    public void setProductLadderList(List<PmsProductLadder> productLadderList) {
-        this.productLadderList = productLadderList;
-    }
 
-    public List<PmsProductFullReduction> getProductFullReductionList() {
-        return productFullReductionList;
-    }
 
-    public void setProductFullReductionList(List<PmsProductFullReduction> productFullReductionList) {
-        this.productFullReductionList = productFullReductionList;
-    }
 
-    public List<PmsMemberPrice> getMemberPriceList() {
-        return memberPriceList;
-    }
 
-    public void setMemberPriceList(List<PmsMemberPrice> memberPriceList) {
-        this.memberPriceList = memberPriceList;
-    }
 
-    public List<PmsSkuStock> getSkuStockList() {
-        return skuStockList;
-    }
 
-    public void setSkuStockList(List<PmsSkuStock> skuStockList) {
-        this.skuStockList = skuStockList;
-    }
 
-    public List<PmsProductAttributeValue> getProductAttributeValueList() {
-        return productAttributeValueList;
-    }
 
-    public void setProductAttributeValueList(List<PmsProductAttributeValue> productAttributeValueList) {
-        this.productAttributeValueList = productAttributeValueList;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import lombok.Data;
 /**
  * @author ：图灵学院
  * @date ：Created in 2020/2/21
@@ -13,6 +14,7 @@ import java.util.Random;
  * @slogan: 天下风云出我辈，一入代码岁月催
  * @description:
  **/
+@Data
 public class VerifyCodeImgUtil {
     /**
      * 创建验证码
@@ -77,6 +79,7 @@ public class VerifyCodeImgUtil {
         return exp;
     }
 
+    @Data
     public static class VerifyCodeInfo{
         private BufferedImage bufferedImage;
         private Integer result;
@@ -86,20 +89,12 @@ public class VerifyCodeImgUtil {
             this.bufferedImage = bufferedImage;
         }
 
-        public BufferedImage getBufferedImage() {
-            return bufferedImage;
-        }
 
-        public void setBufferedImage(BufferedImage bufferedImage) {
-            this.bufferedImage = bufferedImage;
-        }
 
-        public Integer getResult() {
-            return result;
-        }
 
-        public void setResult(Integer result) {
-            this.result = result;
-        }
+
+
+
+
     }
 }

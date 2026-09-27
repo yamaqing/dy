@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+@Data
 public class PmsProductVertifyRecordExample {
     protected String orderByClause;
 
@@ -15,25 +17,17 @@ public class PmsProductVertifyRecordExample {
         oredCriteria = new ArrayList<Criteria>();
     }
 
-    public void setOrderByClause(String orderByClause) {
-        this.orderByClause = orderByClause;
-    }
 
-    public String getOrderByClause() {
-        return orderByClause;
-    }
 
-    public void setDistinct(boolean distinct) {
-        this.distinct = distinct;
-    }
+
+
+
 
     public boolean isDistinct() {
         return distinct;
     }
 
-    public List<Criteria> getOredCriteria() {
-        return oredCriteria;
-    }
+
 
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -64,6 +58,7 @@ public class PmsProductVertifyRecordExample {
         distinct = false;
     }
 
+    @Data
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
 
@@ -80,9 +75,7 @@ public class PmsProductVertifyRecordExample {
             return criteria;
         }
 
-        public List<Criterion> getCriteria() {
-            return criteria;
-        }
+
 
         protected void addCriterion(String condition) {
             if (condition == null) {
@@ -486,6 +479,7 @@ public class PmsProductVertifyRecordExample {
         }
     }
 
+    @Data
     public static class Criteria extends GeneratedCriteria {
 
         protected Criteria() {
@@ -493,6 +487,7 @@ public class PmsProductVertifyRecordExample {
         }
     }
 
+    @Data
     public static class Criterion {
         private String condition;
 
@@ -510,17 +505,11 @@ public class PmsProductVertifyRecordExample {
 
         private String typeHandler;
 
-        public String getCondition() {
-            return condition;
-        }
 
-        public Object getValue() {
-            return value;
-        }
 
-        public Object getSecondValue() {
-            return secondValue;
-        }
+
+
+
 
         public boolean isNoValue() {
             return noValue;
@@ -538,9 +527,7 @@ public class PmsProductVertifyRecordExample {
             return listValue;
         }
 
-        public String getTypeHandler() {
-            return typeHandler;
-        }
+
 
         protected Criterion(String condition) {
             super();

@@ -3,17 +3,14 @@ package com.tl.id.generate;
 import jakarta.annotation.Resource;
 import me.ahoo.cosid.IdGenerator;
 import me.ahoo.cosid.provider.IdGeneratorProvider;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Author： roy
  * Description：
  **/
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class IDTest {
     @Resource
     private IdGeneratorProvider idGeneratorProvider;

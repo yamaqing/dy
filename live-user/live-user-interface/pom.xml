@@ -13,4 +13,11 @@
     <packaging>jar</packaging>
 
     <name>live-user-interface</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>

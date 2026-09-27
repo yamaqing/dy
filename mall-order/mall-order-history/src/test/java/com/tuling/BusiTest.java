@@ -1,8 +1,6 @@
 package com.tuling;
 
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author ：楼兰
@@ -11,7 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
  **/
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class BusiTest {
 //    @Autowired
 //    private OmsPortalOrderService portalOrderService;

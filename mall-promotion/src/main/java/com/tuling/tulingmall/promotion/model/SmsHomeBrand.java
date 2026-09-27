@@ -2,6 +2,8 @@ package com.tuling.tulingmall.promotion.model;
 
 import java.io.Serializable;
 
+import lombok.Data;
+@Data
 public class SmsHomeBrand implements Serializable {
     private Long id;
 
@@ -15,45 +17,25 @@ public class SmsHomeBrand implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getBrandId() {
-        return brandId;
-    }
 
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
-    }
 
-    public String getBrandName() {
-        return brandName;
-    }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
 
-    public Integer getRecommendStatus() {
-        return recommendStatus;
-    }
 
-    public void setRecommendStatus(Integer recommendStatus) {
-        this.recommendStatus = recommendStatus;
-    }
 
-    public Integer getSort() {
-        return sort;
-    }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public String toString() {

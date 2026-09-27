@@ -7,11 +7,9 @@ import com.tuling.tulingmall.model.UmsMemberExample;
 import com.tuling.tulingmall.model.UmsMemberReceiveAddress;
 import com.tuling.tulingmall.model.UmsMemberReceiveAddressExample;
 import com.tuling.tulingmall.service.UmsMemberReceiveAddressService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import jakarta.annotation.Resource;
 import java.util.List;
@@ -21,7 +19,6 @@ import java.util.List;
  * @desc
  */
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class MapperTest {
     @Resource
     private UmsMemberMapper memberMapper;
