@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#app {
+  height: 100%;
+  background: #000;
+  /* 禁止移动端橡皮筋滚动穿透到页面 */
+  overscroll-behavior: none;
+}
+
+html {
+  /* 深色主题：修正原生滚动条/表单控件配色（Windows 暗色模式关键） */
+  color-scheme: dark;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  /* 移除点按半透明高亮，由自定义交互态接管 */
+  -webkit-tap-highlight-color: transparent;
+  /* 消除双击缩放延迟（缩放手势仍保留） */
+  touch-action: manipulation;
+  font-family:
+    system-ui,
+    -apple-system,
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    sans-serif;
+}
+
+/* 键盘导航可见焦点：鼠标点击不显示，Tab 键聚焦显示 */
+:focus-visible {
+  outline: 2px solid theme('colors.secondary');
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 全局细滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 刘海屏安全区工具类 */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/*
+ * Feed 画框（桌面端 ≥768px）：按当前视频宽高比自适应
+ * 宽度 = min(容器宽, 可用高 × 宽高比)，高度由 aspect-ratio 推出，横竖版均无黑边
+ * --ar 由 FeedView 按 item.width/height 注入（数值，如 1.7778 / 0.5625）
+ */
+@media (min-width: 768px) {
+  .feed-frame {
+    width: min(100%, calc((100dvh - 112px) * var(--ar, 0.5625)));
+    height: auto;
+    max-height: calc(100dvh - 112px);
+    aspect-ratio: var(--ar, 0.5625);
+  }
+}
+
+/* 尊重系统减弱动效偏好：关闭非必要循环/爆发动画 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-heart-pop,
+  .animate-marquee,
+  .animate-like-bounce,
+  .animate-shake,
+  [class*='animate-[spin'] {
+    animation: none !important;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,17 +1,71 @@
-# Build output
-target/
+# ========== 依赖目录（体量大，npm/Maven 可还原） ==========
+node_modules/
+# 注意：Java 的依赖在 ~/.m2 本地仓库，不在项目里，无需排除
 
-# IDE
+# ========== 构建产物（可由源码重新构建） ==========
+dist/
+dist-ssr/
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+!.mvn/wrapper/maven-wrapper.jar   # Maven Wrapper 的 jar 要保留，否则别人无法 ./mvnw 构建
+
+# ========== 环境配置与密钥（绝不入库） ==========
+.env.local
+.env.*.local
+*.pem
+*.key
+# 注意：.env.development / .env.production 如果只放 API 路径等公开配置可以提交，
+#       一旦含密钥就必须加入忽略
+
+# ========== 日志与临时文件 ==========
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tmp
+*.temp
+*.swp
+
+# ========== IDE / 编辑器 ==========
+# IntelliJ IDEA
 .idea/
 *.iml
-.vscode/
+*.ipr
+*.iws
+# Eclipse
 .classpath
 .project
 .settings/
+# VS Code（可选：团队统一配置可保留 .vscode/settings.json，但一般忽略整个目录）
+.vscode/
+# JetBrains 系通用
+*.iws
+*.iml
+*.ipr
 
-# Logs
-*.log
+# ========== 操作系统垃圾文件 ==========
+.DS_Store          # macOS
+Thumbs.db          # Windows
+desktop.ini        # Windows
+$RECYCLE.BIN/      # Windows
 
-# OS
-.DS_Store
-Thumbs.db
+# ========== 缓存目录 ==========
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+
+# ========== 测试覆盖率 ==========
+coverage/
+*.lcov
+.nyc_output/
+
+# ========== 其他 ==========
+*.local            # 本地个人配置
+.husky/_           # husky 生成的钩子（v9+ 自动生成）
